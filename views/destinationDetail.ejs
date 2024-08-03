@@ -23,7 +23,16 @@
 
         <a href="<%=result[0].website%>" class="btn btn-outline-primary">Book</a>
 
-        <div><img src="<%=result[0].image%>" width="800px" alt="" class="py-3"></div>
+        <!-- <div><img src="<%=result[0].image%>" id="card-image" width="800px" alt="" class="py-3"></div> -->
+        <div id="carouselExampleControls" class="carousel carousel-fade py-3" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="<%=result[0].image%>" class="d-block w-100" alt="...">
+              </div>
+            </div>
+          </div>
+    
+        </div>
     </div>
 
     <div class="p-5 my-4" style="border: 1px solid rgba(123, 120, 120, 0.403); border-radius: 20px; color: rgba(123, 120, 120, 0.909);">
