@@ -1,0 +1,55 @@
+<%- include("components/header") -%>
+
+<div class="container detailbox shadow-lg p-5 my-4">
+    <h4><b><%=result[0].name%></b></h4>
+
+    <div class="greyBorderBox p-5" style="border: 1px solid rgba(123, 120, 120, 0.403); border-radius: 20px;">
+    <div>
+        <% for(let a=0; a<result[0].star; a++){%>
+            <img src="/images/icons/star.png" width="10px" alt="...">
+        <%}%>
+        <% if(result[0].star < 5){%>
+            <% for(let a=0; a<5 - result[0].star; a++){%>
+                <img src="/images/icons/outlineStar.png" width="10px" alt="...">
+            <%}%>
+        <%}%>
+        <span style="color: rgba(128, 128, 128, 0.632);"> . <%=result[0].star%>-star hotel</span>
+        <a href="/stayReviews/<%=result[0].id%>/<%=result[0].name%>"> Reviews</a>
+    </div>
+
+    <div class="row">
+        <p class="col-9" style="color: rgba(128, 128, 128, 0.826);"><%=result[0].address%> . <%=result[0].phoneNumber%></p>
+        <h4 class="col-3"><b>₦<%=result[0].price%></b></h4>
+    </div>
+
+    <a href="<%=result[0].website%>" class="btn btn-outline-primary">Book</a>
+
+
+    <div class="py-3">
+        <div id="carouselExampleControls" class="carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="<%=result[0].image1%>" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="<%=result[0].image2%>" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="<%=result[0].image3%>" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    
+        </div>
+    </div>
+</div>
+   
+<%- include("components/footer") -%>

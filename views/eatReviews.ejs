@@ -1,0 +1,65 @@
+<%- include("components/header") -%>
+
+<div class=" featuredDestinations my-4 text-center">
+    <hr class="half-hr"> <h2 class="inline-block"> Reviews</h2> <hr class="half-hr">
+</div>
+
+<div class="greyBorderBox m-3 p-5" style="border: 1px solid rgba(123, 120, 120, 0.403); border-radius: 20px;">
+    <h4><%=place%></h4>
+    <p><%=result.length%> reviews</p>
+   <div class="row">
+    <% for(let i=0; i<result.length; i++){%>
+        <div class="col-12 pb-3">
+            <div>
+                <% for(let a=0; a<result[i].star; a++){%>
+                    <img src="/images/icons/star.png" width="10px" alt="...">
+                <%}%>
+                <% if(result[i].star < 5){%>
+                    <% for(let a=0; a<5 - result[i].star; a++){%>
+                        <img src="/images/icons/outlineStar.png" width="10px" alt="...">
+                    <%}%>
+                <%}%>
+            </div>
+
+            <p><%=result[i].review%> </p>
+        </div>
+      <%}%>
+   </div>
+
+   <% if (result.length == 0){%>
+    <p>No reviews</p>
+  <%}%>
+
+   <form method="POST" action="/postEatReview/<%=desID%>">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Review</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="review" placeholder="Write a review">
+    </div>
+    <p>Rating</p>
+            <div class="row">
+                <div class="col-4">
+                    <input type="radio" id="1" name="star" value="1">
+                    <label for="1">One Star</label>
+                </div>
+                <div class="col-4">
+                    <input type="radio" id="2" name="star" value="2" checked="true">
+                    <label for="2">Two Star</label>
+                </div>
+                <div class="col-4">
+                    <input type="radio" id="3" name="star" value="3">
+                    <label for="3">Three Star</label>
+                </div>
+                <div class="col-4">
+                    <input type="radio" id="4" name="star" value="4" checked="true">
+                    <label for="4">Four Star</label>
+                </div>
+                <div class="col-4">
+                    <input type="radio" id="5" name="star" value="5">
+                    <label for="5">Five Star</label>
+                </div>
+            </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+</div>
+
+<%- include("components/footer") -%>

@@ -1,0 +1,34 @@
+<%- include("components/header") -%>
+
+<div class="container detailbox shadow-lg p-5 my-4">
+    <h4><b><%=result[0].name%></b></h4>
+
+    <div class="greyBorderBox p-5" style="border: 1px solid rgba(123, 120, 120, 0.403); border-radius: 20px;">
+
+        <div>
+            <% for(let a=0; a<result[0].star; a++){%>
+                <img src="/images/icons/star.png" width="10px" alt="...">
+            <%}%>
+            <% if(result[0].star < 5){%>
+                <% for(let a=0; a<5 - result[0].star; a++){%>
+                    <img src="/images/icons/outlineStar.png" width="10px" alt="...">
+                <%}%>
+            <%}%>
+            <a href="/destinationReviews/<%=result[0].id%>/<%=result[0].name%>"> Reviews</a>
+        </div>
+
+        <p style="color: rgba(128, 128, 128, 0.826);"><%=result[0].address%> . <%=result[0].phone_number%> . <%=result[0].email%></p>
+
+        <p><%=result[0].opening_time%></p>
+
+        <a href="<%=result[0].website%>" class="btn btn-outline-primary">Book</a>
+
+        <div><img src="<%=result[0].image%>" width="800px" alt="" class="py-3"></div>
+    </div>
+
+    <div class="p-5 my-4" style="border: 1px solid rgba(123, 120, 120, 0.403); border-radius: 20px; color: rgba(123, 120, 120, 0.909);">
+        <p><%=result[0].description%></p>
+    </div>
+</div>
+   
+<%- include("components/footer") -%>

@@ -1,0 +1,35 @@
+<%- include("components/header") -%>
+
+<div class="container detailbox shadow-lg p-5 my-4">
+    <h4><b><%=result[0].name%></b></h4>
+
+    <div class="greyBorderBox p-5" style="border: 1px solid rgba(123, 120, 120, 0.403); border-radius: 20px;">
+
+        <div>
+            <%=result[0].star%>
+            <% for(let a=0; a<result[0].star; a++){%>
+                <img src="/images/icons/star.png" width="10px" alt="...">
+            <%}%>
+            <% if(result[0].star < 5){%>
+                <% for(let a=0; a<5 - result[0].star; a++){%>
+                    <img src="/images/icons/outlineStar.png" width="10px" alt="...">
+                <%}%>
+            <%}%>
+            <span> . Restaurant</span>
+            <a href="/eatReviews/<%=result[0].id%>/<%=result[0].name%>"> Reviews</a>
+        </div>
+
+        <div><img src="<%=result[0].image%>" width="800px" alt="" class="py-3"></div>
+
+        <a href="<%=result[0].website%>" class="btn btn-outline-primary">Website</a>
+
+    </div>
+
+    <div class="p-5 my-4" style="border: 1px solid rgba(123, 120, 120, 0.403); border-radius: 20px; color: rgba(123, 120, 120, 0.909);">
+        <p>Address: <%=result[0].address%></p>
+        <p>Hours: <%=result[0].hours%></p>
+        <p>Phone: <%=result[0].phone_number%></p>
+    </div>
+</div>
+   
+<%- include("components/footer") -%>

@@ -1,0 +1,24 @@
+<%- include("components/header") -%>
+
+<div class=" featuredDestinations my-4 text-center">
+    <hr class="half-hr"> <h2 class="inline-block"> Transport Services</h2> <hr class="half-hr">
+  </div>
+
+<div class="container">
+<div class="row text-center">
+    <% for(let i=0; i<result.length; i++){%>
+    <div class="col-lg-4 col-md-6 col-sm-12 pb-3">
+        <a href="/destinationDetail/<%=result[i].id%>" class="destinationCardLink">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=result[i].image%>" alt="<%=result[i].name%>">
+            <div class="card-body">
+            <a href="<%=result[i].website%>" class="btn btn-outline-primary" target="_blank">Website</a>
+            </div>
+        </div>
+        </a>
+    </div>
+    <%}%>
+</div>
+</div>
+
+<%- include("components/footer") -%>
