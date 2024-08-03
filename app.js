@@ -20,6 +20,18 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
+async function testConnection() {
+    try {
+        const connection = await pool.getConnection();
+        console.log("Connected to the database.");
+        connection.release();
+    } catch (err) {
+        console.error("Error connecting to the database:", err);
+    }
+}
+
+testConnection();
+
 app.get("/", async function(req, res) {
     var categories = [
         {name:"Historical Sites", img: "images/categories/historicalSites.jpeg"},
