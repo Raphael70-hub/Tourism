@@ -14,7 +14,8 @@ var conn = mysql.createConnection({
     host: "sql.freedb.tech",
     user: "freedb_admin7070",
     password: "C7uHTEQf3@s#eDm",
-    database: "freedb_tourist_destinations"
+    database: "freedb_tourist_destinations",
+    port: 3306,
   });
   
   conn.connect(function(err){
